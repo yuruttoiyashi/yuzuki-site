@@ -26,7 +26,20 @@ it('PC表示で日本語の意味のまとまりを途中改行させない', ()
   const { container } = render(<App />)
   const page = within(container)
 
-  for (const phrase of ['ドライヘッドスパ。', '整えるひとつの習慣。', 'ありませんか？', '3つのこだわり']) {
+  for (const phrase of [
+    '女性専用ドライヘッドスパ。',
+    '整えるひとつの習慣。',
+    'こんなお疲れは',
+    'ありませんか？',
+    '深く休むための、',
+    '3つのこだわり',
+    '働く毎日に寄り添う、',
+    '初めての方にも、安心して',
+    '休んでいただくために。',
+    '日常の音から',
+    '離れる、',
+    '静かな一室。',
+  ]) {
     expect(page.getByText(phrase)).toHaveClass('keep-together')
   }
 })

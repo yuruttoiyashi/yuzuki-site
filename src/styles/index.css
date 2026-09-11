@@ -203,7 +203,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 @media (min-width: 901px) {
-  .keep-together { white-space: nowrap; }
+  .keep-together { display: inline-block; white-space: nowrap; }
   .form-row { grid-template-columns: 1fr 1fr; }
   .reservation-confirm dl div { grid-template-columns: 180px minmax(0, 1fr); gap: 2rem; }
   .form-actions { flex-direction: row; flex-wrap: wrap; }
