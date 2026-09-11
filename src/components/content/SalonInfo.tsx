@@ -1,0 +1,2 @@
+import { siteInfo } from '../../data/site'
+export function SalonInfo() { return <dl className="salon-info"><div><dt>所在地</dt><dd>{siteInfo.address}</dd></div><div><dt>アクセス</dt><dd>{siteInfo.nearestStation}</dd></div><div><dt>営業時間</dt><dd>{siteInfo.hours}<br />{siteInfo.lastReception}</dd></div><div><dt>定休日</dt><dd>{siteInfo.closed}</dd></div><div><dt>ご利用</dt><dd>{siteInfo.audience}・{siteInfo.reservationPolicy}</dd></div><div><dt>お支払い</dt><dd>{siteInfo.payments}</dd></div></dl> }

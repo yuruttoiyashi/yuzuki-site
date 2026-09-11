@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+:root {
+  --color-kinari: #f3eee5;
+  --color-sumi: #292725;
+  --color-brown: #76685d;
+  --color-stone: #a39b91;
+  --color-brass: #9b8059;
+  font-family: "Noto Sans JP", "Yu Gothic", sans-serif;
+  color: var(--color-sumi);
+  background: var(--color-kinari);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body { margin: 0; min-width: 320px; overflow-x: clip; font-size: 1rem; line-height: 1.8; }
+
+a { color: inherit; text-decoration: none; }
+
+.skip-link { position: fixed; left: 1rem; top: -5rem; z-index: 100; background: white; padding: .75rem 1rem; }
+.skip-link:focus { top: 1rem; }
+.site-header { position: sticky; top: 0; z-index: 40; background: color-mix(in srgb, var(--color-kinari) 94%, transparent); border-bottom: 1px solid rgba(41,39,37,.12); backdrop-filter: blur(14px); }
+.header-inner { max-width: 1200px; min-height: 82px; margin: auto; padding: 0 5vw; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; flex-direction: column; line-height: 1.25; }
+.brand-name, .footer-brand { font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: 1.3rem; letter-spacing: .12em; }
+.brand-en, .eyebrow { font-size: .7rem; letter-spacing: .2em; color: var(--color-brown); }
+.main-nav { display: flex; align-items: center; gap: 2rem; font-size: .875rem; letter-spacing: .08em; }
+.main-nav a { border-bottom: 1px solid transparent; }
+.main-nav a:hover, .main-nav a.active { border-color: var(--color-brass); }
+.menu-toggle { min-width: 44px; min-height: 44px; display: none; align-items: center; justify-content: center; border: 0; background: transparent; color: inherit; }
+.hero-placeholder, .page-hero { min-height: 58vh; padding: clamp(6rem, 12vw, 10rem) 8vw; display: flex; flex-direction: column; justify-content: center; }
+.page-hero { position: relative; overflow: hidden; background: #ece5da; }
+.page-hero::after { content: ""; position: absolute; width: min(42vw, 520px); aspect-ratio: 1; right: -10vw; top: 50%; translate: 0 -50%; border: 1px solid rgba(155,128,89,.18); border-radius: 50%; }
+.page-hero-line { width: 56px; margin-bottom: 1.5rem; border-top: 1px solid var(--color-brass); }
+.hero-placeholder h1, .page-hero h1 { max-width: 760px; margin: .7rem 0 1rem; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(2.2rem, 6vw, 4.8rem); font-weight: 500; line-height: 1.35; letter-spacing: .08em; }
+.hero-placeholder p:not(.eyebrow), .page-hero > p:last-child { max-width: 42rem; }
+.button { align-self: flex-start; margin-top: 1.5rem; padding: .85rem 2rem; color: white; background: var(--color-sumi); letter-spacing: .12em; }
+.site-footer { padding: 4rem 6vw 6.5rem; color: #f5f1ea; background: var(--color-sumi); }
+.footer-inner { max-width: 1100px; margin: auto; display: flex; justify-content: space-between; gap: 3rem; }
+.footer-inner nav { display: flex; gap: 1.5rem; }
+.demo-note, .copyright { max-width: 1100px; margin: 2rem auto 0; color: #b8b0a7; font-size: .8rem; }
+.copyright { margin-top: .5rem; }
+.fixed-reserve { display: none; }
+
+.section { max-width: 1180px; margin: auto; padding: clamp(5rem, 10vw, 9rem) 6vw; }
+.section-inner { max-width: 1080px; margin: auto; }
+.section-dark { padding: clamp(5rem, 10vw, 9rem) 6vw; color: #f3eee5; background: var(--color-sumi); }
+.section-heading { max-width: 700px; margin-bottom: 3rem; }
+.section-heading h2 { margin: .75rem 0 1rem; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(1.9rem, 4vw, 3.25rem); font-weight: 500; line-height: 1.5; letter-spacing: .06em; }
+.section-heading > p:last-child { color: #6c645e; }
+.section-heading.light .eyebrow, .section-heading.light > p:last-child { color: #cfc3b5; }
+.home-hero { min-height: calc(100svh - 82px); display: grid; grid-template-columns: minmax(330px, .85fr) 1.4fr; align-items: stretch; padding-left: 7vw; background: var(--color-kinari); }
+.home-hero .hero-copy { align-self: center; z-index: 1; padding: 5rem 0; }
+.hero-brand { font-family: "Yu Mincho", serif; letter-spacing: .18em; }
+.home-hero h1 { margin: 1.2rem 0; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(2.4rem, 5vw, 5rem); font-weight: 500; line-height: 1.45; letter-spacing: .06em; white-space: nowrap; }
+.hero-lead { max-width: 28rem; }
+.hero-visual, .space-visual, .therapist-visual, .salon-detail-visual, .profile-visual { display: block; width: 100%; object-fit: cover; background: #65594f; }
+.hero-visual { min-width: 0; min-height: 680px; height: calc(100% - 7rem); align-self: center; margin-left: -2rem; }
+.concept { display: grid; grid-template-columns: 1fr 2fr; gap: 9vw; align-items: start; }
+.concept > div { max-width: 650px; }
+.vertical-copy { justify-self: center; writing-mode: vertical-rl; font-family: "Yu Mincho", serif; font-size: 1.25rem; letter-spacing: .25em; }
+.worries ul { max-width: 800px; margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(255,255,255,.22); }
+.worries li { padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,.22); font-family: "Yu Mincho", serif; font-size: clamp(1.15rem, 2vw, 1.5rem); }
+.worries .section-inner > p { margin-top: 2.5rem; color: #cfc3b5; }
+.feature-lines article { display: grid; grid-template-columns: 70px minmax(220px, .7fr) 1.3fr; gap: 2rem; padding: 2.5rem 0; border-top: 1px solid rgba(41,39,37,.18); align-items: start; }
+.feature-lines article > span { color: var(--color-brass); font-family: serif; }
+.feature-lines h3 { margin: 0; font-family: "Yu Mincho", serif; font-size: 1.35rem; font-weight: 500; }
+.feature-lines p { margin: 0; color: #665f59; }
+.popular-menu { max-width: none; background: #e8e0d4; }
+.menu-list { display: grid; gap: 1.5rem; }
+.menu-item { padding: 2.5rem 0; border-top: 1px solid rgba(41,39,37,.22); border-bottom: 1px solid rgba(41,39,37,.22); }
+.menu-item .popular { color: var(--color-brass); font-size: .75rem; letter-spacing: .18em; }
+.menu-title { display: flex; align-items: end; justify-content: space-between; gap: 2rem; }
+.menu-title h3 { margin: .25rem 0; font-family: "Yu Mincho", serif; font-size: clamp(1.45rem, 3vw, 2.3rem); font-weight: 500; }
+.menu-title p { margin: 0; color: #6e665f; }
+.menu-price { flex: 0 0 auto; }
+.menu-price strong { font-size: 2rem; font-weight: 400; }.menu-price b { margin-left: 1.25rem; font-size: 1.1rem; }
+.menu-description { max-width: 720px; }
+.treatment-list { display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; list-style: none; }
+.treatment-list li { padding: .35rem .8rem; border: 1px solid rgba(41,39,37,.25); font-size: 1rem; }
+.recommended-for { margin-top: 1.75rem; display: grid; grid-template-columns: 150px 1fr; gap: 1.5rem; }
+.recommended-for h4 { margin: 0; color: var(--color-brown); font-size: 1rem; font-weight: 500; }
+.recommended-for ul { margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; list-style: none; }
+.recommended-for li { position: relative; padding-left: 1rem; }
+.recommended-for li::before { content: "・"; position: absolute; left: 0; color: var(--color-brass); }
+.text-link { display: inline-block; margin-top: 1.5rem; padding-bottom: .2rem; border-bottom: 1px solid currentColor; letter-spacing: .06em; }
+.text-link.light { color: #f3eee5; }
+.flow-steps { padding: 0; list-style: none; border-top: 1px solid rgba(41,39,37,.18); }
+.flow-steps li { display: grid; grid-template-columns: 90px 1fr; padding: 2.3rem 0; border-bottom: 1px solid rgba(41,39,37,.18); }
+.flow-steps li > span { color: var(--color-brass); font-family: serif; font-size: 1.1rem; }
+.flow-steps h3 { margin: 0 0 .5rem; font-family: "Yu Mincho", serif; font-size: 1.35rem; font-weight: 500; }.flow-steps p { margin: 0; color: #665f59; }
+.therapist { display: grid; grid-template-columns: .9fr 1fr; gap: 8vw; align-items: center; }
+.therapist-visual { min-height: 650px; aspect-ratio: 4 / 5; }.therapist blockquote { margin: 0 0 2rem; font-family: "Yu Mincho", serif; font-size: 1.5rem; }.therapist-role { color: #cfc3b5; }
+.space { display: grid; grid-template-columns: 1.25fr .75fr; gap: 7vw; align-items: center; }.space-visual { min-height: 520px; aspect-ratio: 16 / 10; }
+.faq-list { border-top: 1px solid rgba(41,39,37,.18); }.faq-item { border-bottom: 1px solid rgba(41,39,37,.18); }.faq-item h3 { margin: 0; }.faq-item button { width: 100%; padding: 1.4rem 0; display: flex; justify-content: space-between; gap: 1rem; border: 0; color: inherit; background: transparent; text-align: left; font-size: 1rem; }.faq-item div p { margin: 0; padding: 0 3rem 1.5rem 0; color: #665f59; }
+.access { display: grid; grid-template-columns: 1fr .8fr; gap: 8vw; align-items: center; }.salon-info { margin: 0; }.salon-info div { display: grid; grid-template-columns: 110px 1fr; padding: 1rem 0; border-bottom: 1px solid rgba(41,39,37,.16); }.salon-info dt { color: #736a63; }.salon-info dd { margin: 0; }.map-placeholder { aspect-ratio: 4/3; display: grid; place-content: center; padding: 2rem; text-align: center; background: #ded4c6; }.map-placeholder strong { font-family: serif; font-size: 2rem; font-weight: 400; }.map-placeholder small { font-size: 1rem; }
+.closing-cta { padding: clamp(6rem, 12vw, 10rem) 6vw; color: white; background: #473f39; text-align: center; }.closing-cta h2 { font-family: "Yu Mincho", serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 500; line-height: 1.5; }.closing-cta .button { display: inline-block; }.button-light { color: var(--color-sumi); background: var(--color-kinari); }
+.menu-page .menu-list { margin-top: 1rem; }
+.course-guide .guide-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(255,255,255,.22); }
+.guide-grid > div { padding: 2.25rem 2rem 2.25rem 0; border-bottom: 1px solid rgba(255,255,255,.22); }
+.guide-grid > div + div { padding-left: 2rem; border-left: 1px solid rgba(255,255,255,.22); }
+.guide-grid h3 { margin: 0 0 .75rem; font-family: "Yu Mincho", serif; font-size: 1.35rem; font-weight: 500; }
+.guide-grid p { margin: 0; color: #cfc3b5; }
+.menu-notes { max-width: 900px; }
+.menu-notes ul { margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(41,39,37,.18); }
+.menu-notes li { padding: 1rem 0 1rem 1.5rem; border-bottom: 1px solid rgba(41,39,37,.18); position: relative; }
+.menu-notes li::before { content: "—"; position: absolute; left: 0; color: var(--color-brass); }
+.salon-philosophy, .profile, .salon-access { display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; align-items: center; }
+.salon-philosophy p, .profile > div:last-child > p:last-child { color: #665f59; }
+.salon-detail-visual, .profile-visual { min-height: 620px; }
+.salon-detail-visual { aspect-ratio: 4 / 3; }
+.profile-visual { aspect-ratio: 4 / 5; }
+.environment-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(255,255,255,.22); }
+.environment-grid article { min-height: 250px; padding: 2rem 2rem 2rem 0; border-bottom: 1px solid rgba(255,255,255,.22); }
+.environment-grid article + article { padding-left: 2rem; border-left: 1px solid rgba(255,255,255,.22); }
+.environment-grid span { color: #bda887; font-size: .75rem; letter-spacing: .2em; }
+.environment-grid h3 { margin: 2.75rem 0 .75rem; font-family: "Yu Mincho", serif; font-size: 1.45rem; font-weight: 500; }
+.environment-grid p { color: #cfc3b5; }
+.profile blockquote { margin: 0 0 1.75rem; font-family: "Yu Mincho", serif; font-size: clamp(1.35rem, 2.5vw, 1.8rem); line-height: 1.8; }
+.profile .therapist-role { color: var(--color-brown); }
+.access-policy { color: var(--color-brass); letter-spacing: .08em; }
+.parking-note { color: #665f59; }
+.reserve-page { max-width: 900px; }
+.reservation-progress { margin: 0 0 4rem; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); list-style: none; border-top: 1px solid rgba(41,39,37,.2); }
+.reservation-progress li { padding: 1rem 0; color: var(--color-stone); border-bottom: 1px solid rgba(41,39,37,.2); letter-spacing: .1em; }
+.reservation-progress li span { margin-right: .75rem; font-family: serif; }
+.reservation-progress li.active { color: var(--color-sumi); border-bottom-color: var(--color-brass); }
+.reservation-step-title { margin: 0; font-family: "Yu Mincho", serif; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 500; }
+.reserve-page [data-step-heading] { scroll-margin-top: 110px; }
+.form-intro { margin-bottom: 3rem; color: #665f59; }
+.reservation-form { display: grid; gap: 2rem; }
+.form-row { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+.form-field { display: grid; gap: .55rem; }
+.form-field label, .checkbox-label { font-weight: 600; }
+.required-mark, .optional-mark { margin-left: .45rem; color: #735e4f; font-size: .8rem; font-weight: 500; }
+.optional-mark { color: var(--color-brown); }
+.form-field input, .form-field select, .form-field textarea { width: 100%; min-height: 52px; padding: .75rem .9rem; border: 1px solid #a9a097; border-radius: 0; color: var(--color-sumi); background: rgba(255,255,255,.52); }
+.form-field textarea { resize: vertical; }
+.form-field [aria-invalid="true"], .checkbox-label input[aria-invalid="true"] { border-color: #9a3f37; }
+.field-help { margin: 0; color: #665f59; }
+.field-error { margin: 0; color: #8a302b; font-weight: 600; }
+.reservation-notice { padding: 1.75rem; background: #e8e0d4; }
+.reservation-notice h3 { margin-top: 0; font-family: "Yu Mincho", serif; font-weight: 500; }
+.checkbox-label { display: flex; align-items: center; gap: .65rem; }
+.checkbox-label input { width: 20px; height: 20px; accent-color: var(--color-sumi); }
+.form-submit { justify-self: start; border: 0; cursor: pointer; }
+.reservation-confirm h2, .reservation-complete h2, .line-reservation h2 { font-family: "Yu Mincho", serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 500; }
+.reservation-confirm dl { margin: 3rem 0; border-top: 1px solid rgba(41,39,37,.2); }
+.reservation-confirm dl div { display: grid; grid-template-columns: 1fr; gap: .35rem; padding: 1.25rem 0; border-bottom: 1px solid rgba(41,39,37,.2); }
+.reservation-confirm dt { color: var(--color-brown); }
+.reservation-confirm dd { min-width: 0; margin: 0; overflow-wrap: anywhere; }
+.form-actions { display: flex; flex-direction: column-reverse; gap: 1rem; }
+.form-actions .button { width: 100%; }
+.form-actions .button { margin-top: 0; border: 1px solid var(--color-sumi); cursor: pointer; }
+.button-outline { color: var(--color-sumi); background: transparent; }
+.reservation-complete { max-width: 680px; margin: auto; text-align: center; }
+.reservation-complete .button { display: inline-block; }
+.complete-mark { width: 60px; height: 60px; margin: 0 auto 2rem; display: grid; place-items: center; border: 1px solid var(--color-brass); border-radius: 50%; color: var(--color-brass); font-size: 1.5rem; }
+.demo-alert { margin: 2rem 0; padding: 1.25rem; background: #e8e0d4; }
+.line-reservation h2 { max-width: 720px; }
+.line-reservation p { max-width: 700px; color: #cfc3b5; }
+.line-reservation .button { border: 0; cursor: pointer; }
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s ease, transform .8s ease; }.reveal.is-visible { opacity: 1; transform: none; }
+
+@media (max-width: 900px) {
+  .header-inner { min-height: 70px; padding: 0 1.25rem; }
+  .menu-toggle { display: flex; align-items: center; gap: .6rem; font-size: .875rem; }
+  .main-nav { position: absolute; inset: 70px 0 auto; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 1rem 1.5rem 2rem; background: var(--color-kinari); border-bottom: 1px solid rgba(41,39,37,.12); }
+  .main-nav.is-open { display: flex; }
+  .main-nav a { padding: .9rem 0; }
+  .hero-placeholder, .page-hero { min-height: 65vh; padding: 5.5rem 1.5rem; }
+  .footer-inner, .footer-inner nav { flex-direction: column; }
+  .footer-inner { gap: 2rem; }
+  .footer-inner nav { gap: .5rem; }
+  .fixed-reserve { position: fixed; z-index: 50; left: .75rem; right: .75rem; bottom: .75rem; min-height: 58px; display: flex; align-items: center; justify-content: center; gap: .75rem; color: white; background: var(--color-sumi); box-shadow: 0 10px 30px rgba(0,0,0,.24); letter-spacing: .12em; }
+  .fixed-reserve small { color: #d6cabd; font-size: .875rem; }
+  .section, .section-dark { padding: 5rem 1.5rem; }
+  .home-hero { min-height: auto; display: flex; flex-direction: column; padding: 0; }
+  .home-hero .hero-copy { order: 2; padding: 3.5rem 1.5rem 5rem; }
+  .home-hero h1 { white-space: normal; font-size: clamp(2.35rem, 11vw, 3.4rem); }
+  .hero-visual { order: 1; min-height: 58svh; height: 58svh; margin: 0; object-position: center; }
+  .concept, .feature-lines article, .therapist, .space, .access, .salon-philosophy, .profile, .salon-access { grid-template-columns: 1fr; }
+  .concept { gap: 2.5rem; }.vertical-copy { justify-self: start; writing-mode: horizontal-tb; font-size: 1rem; }
+  .feature-lines article { gap: .7rem; }.feature-lines article > span { margin-bottom: .3rem; }
+  .menu-title { align-items: start; flex-direction: column; }.menu-price b { margin-left: .75rem; }
+  .recommended-for { grid-template-columns: 1fr; gap: .5rem; }
+  .flow-steps li { grid-template-columns: 50px 1fr; }
+  .therapist-visual, .space-visual { min-height: 500px; }
+  .therapist-visual { order: -1; }.salon-info div { grid-template-columns: 90px 1fr; gap: .5rem; }
+  .salon-detail-visual, .profile-visual { min-height: 72vw; }
+  .salon-detail-visual, .profile-visual { order: -1; }
+  .course-guide .guide-grid, .environment-grid { grid-template-columns: 1fr; }
+  .guide-grid > div, .guide-grid > div + div, .environment-grid article, .environment-grid article + article { padding: 1.75rem 0; border-left: 0; }
+  .environment-grid article { min-height: auto; }
+  .environment-grid h3 { margin-top: 1.5rem; }
+  .reservation-progress { margin-bottom: 3rem; }
+  .reservation-progress li { display: flex; flex-direction: column; gap: .1rem; font-size: .9rem; }
+  .reservation-progress li span { margin: 0; }
+}
+
+@media (min-width: 901px) {
+  .form-row { grid-template-columns: 1fr 1fr; }
+  .reservation-confirm dl div { grid-template-columns: 180px minmax(0, 1fr); gap: 2rem; }
+  .form-actions { flex-direction: row; flex-wrap: wrap; }
+  .form-actions .button { width: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+
+button, input, select, textarea { font: inherit; }
+
+:focus-visible { outline: 3px solid var(--color-brass); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

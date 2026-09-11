@@ -1,0 +1,9 @@
+.worktrees/
+.superpowers/
+node_modules/
+dist/
+*.tsbuildinfo
+.sites-runtime/
+.env
+.env.*
+!.env.example
