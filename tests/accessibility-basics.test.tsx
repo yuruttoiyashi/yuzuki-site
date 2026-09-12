@@ -43,3 +43,13 @@ it('PC表示で日本語の意味のまとまりを途中改行させない', ()
     expect(page.getByText(phrase)).toHaveClass('keep-together')
   }
 })
+
+it('ファーストビューの文字を画像と予約ボタンに重ねない', () => {
+  window.history.pushState({}, '', '/')
+  const { container } = render(<App />)
+  const heroCopy = container.querySelector('.hero-copy') as HTMLElement
+  const reserveLink = within(heroCopy).getByRole('link', { name: '予約する' })
+
+  expect(getComputedStyle(heroCopy).display).toBe('flex')
+  expect(getComputedStyle(reserveLink).display).toBe('inline-block')
+})
