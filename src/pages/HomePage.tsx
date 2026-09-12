@@ -18,7 +18,7 @@ const features = [
 
 export function HomePage() {
   return <>
-    <section className="home-hero"><div className="hero-copy"><p className="eyebrow">YUZUKI DRY HEAD SPA</p><p className="hero-brand">癒し処 結月</p><h1 aria-label="がんばる毎日に、深い休息を。">がんばる毎日に、<br />深い休息を。</h1><p className="hero-lead">頭と心を静かにほどく、二子玉川の<span className="keep-together">女性専用ドライヘッドスパ。</span></p><Link className="button" to="/reserve">予約する</Link></div><img className="hero-visual" src={heroImage} width="1586" height="992" alt="木と石、やわらかな間接照明で整えた結月の施術室" fetchPriority="high" /></section>
+    <section className="home-hero"><div className="hero-copy" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}><p className="eyebrow">YUZUKI DRY HEAD SPA</p><p className="hero-brand">癒し処 結月</p><h1 aria-label="がんばる毎日に、深い休息を。">がんばる毎日に、<br />深い休息を。</h1><p className="hero-lead">頭と心を静かにほどく、二子玉川の<span className="keep-together">女性専用ドライヘッドスパ。</span></p><Link className="button" style={{ display: 'inline-block' }} to="/reserve">予約する</Link></div><img className="hero-visual" src={heroImage} width="1586" height="992" alt="木と石、やわらかな間接照明で整えた結月の施術室" fetchPriority="high" /></section>
 
     <Reveal><section className="concept section"><p className="vertical-copy">何もしない時間を、あなたの予定に。</p><div><SectionHeading eyebrow="CONCEPT" title={<>休むことも、毎日を<span className="keep-together">整えるひとつの習慣。</span></>} /><p>仕事のこと、家のこと、誰かのこと。気づけば、自分の疲れだけを後回しにしていませんか。</p><p>結月は、忙しさの外へそっと離れ、思考と身体の力を抜くための小さな場所です。眠らなければとがんばる必要も、会話を続ける必要もありません。ただ目を閉じて、ゆっくり呼吸をする。そのための時間をご用意しています。</p></div></section></Reveal>
 
